@@ -1,12 +1,14 @@
 import 'package:admin_clean_arch/di_container.dart';
-import 'package:admin_clean_arch/features/auth/domain/usecases/login_user_case.dart';
 import 'package:admin_clean_arch/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:admin_clean_arch/features/auth/presentation/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await dotenv.load(fileName: ".env");
 
   // Setting up getId
   setupDependencies();

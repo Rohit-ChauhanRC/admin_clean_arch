@@ -3,11 +3,12 @@ import 'package:admin_clean_arch/features/auth/data/repositories/auth_repository
 import 'package:admin_clean_arch/features/auth/domain/repositories/auth_repository.dart';
 import 'package:admin_clean_arch/features/auth/domain/usecases/login_user_case.dart';
 import 'package:get_it/get_it.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 final GetIt sl = GetIt.instance;
 
 void setupDependencies() {
-  const String baseUrl = 'http://plant.maklife.in:6027/api';
+  String baseUrl = dotenv.env['BASEURL'].toString();
 
   // Data Sources
   sl.registerLazySingleton<AuthRemoteDataSource>(
