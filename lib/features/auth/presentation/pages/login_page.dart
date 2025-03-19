@@ -15,7 +15,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController _mobileController = TextEditingController();
-  final GlobalKey loginFormKey = GlobalKey();
+  GlobalKey<FormState>? loginFormKey = GlobalKey<FormState>();
 
   @override
   void dispose() {
@@ -128,6 +128,9 @@ class _LoginPageState extends State<LoginPage> {
                                 backgroundColor: const Color(0xff09AB47),
                               ),
                               onPressed: () {
+                                if (!loginFormKey!.currentState!.validate()) {
+                                  return;
+                                }
                                 _onLogin();
                                 // Get.toNamed(Routes.HOME, arguments: "1002");
                               },

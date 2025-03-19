@@ -15,7 +15,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
     try {
       final user = await loginUserCase(event.mobileNumber, event.userType);
-      emit(AuthSuccess(message: user.data));
+      if (user.data == "OTP Sent !") {
+        emit(AuthSuccess(message: user.data));
+      } else {
+        emit(AuthError(error: user.data));
+      }
     } catch (e) {
       emit(AuthError(error: e.toString()));
     }
