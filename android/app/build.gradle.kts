@@ -8,7 +8,6 @@ plugins {
 android {
     namespace = "com.codebyrc.admin_clean_arch"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
